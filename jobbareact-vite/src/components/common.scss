@@ -1,0 +1,26 @@
+$jobba-blue: rgb(56 189 248);
+
+.jobba-blue {
+    color: $jobba-blue;
+}
+
+// :root {
+//     --primary-color: rgb(56 189 248);
+//     --inverted-primary-color: rgb(107 123 407);
+//     --clicked-primary-color: gray;
+// }
+
+// .btn-primary {
+//     background-color: var(--primary-color);
+//     border-color: var(--primary-color);
+// }
+
+// .btn-primary:hover {
+//     background-color: var(--inverted-primary-color);
+//     border-color: var(--inverted-primary-color);
+// }
+
+// .btn-primary:pres {
+//     background-color: var(--inverted-primary-color);
+//     border-color: var(--inverted-primary-color);
+// }

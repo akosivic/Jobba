@@ -1,0 +1,17 @@
+@import "../common.scss";
+
+.navbar-nav {
+    .show>.nav-link,
+    .nav-link {
+        &.active {
+            color: $jobba-blue !important;
+            border-bottom: 2px solid $jobba-blue ;
+            font-weight: 500;
+        }
+    }
+
+    .nav-link:hover {
+        color: $jobba-blue !important;
+        border-bottom: 2px solid $jobba-blue ;
+    }
+}
