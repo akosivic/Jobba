@@ -31,24 +31,17 @@ import {
   ListItemText,
 } from "@mui/material";
 
-const pages = [
-  { title: "Home", url: "/" },
-  { title: "Find Jobs", url: "/findjobs" },
-];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import { LoginType, getAuthenticatedURLs } from "/src/services/helperService";
 
-//Temporary while we setup the authentication.
-enum LoginType {
-  Default = 0,
-  Jobseeker,
-  Employer,
-}
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function NavigationBar({
   options = LoginType.Default,
 }: {
   options: any | undefined;
 }) {
+  let pages = getAuthenticatedURLs(options);
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -157,6 +150,7 @@ export default function NavigationBar({
                 <Button
                   component={Link}
                   to={page.url}
+                  relative="route"
                   key={page.title}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}

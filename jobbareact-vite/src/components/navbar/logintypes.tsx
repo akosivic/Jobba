@@ -1,4 +1,4 @@
-enum LoginType {
+enum LoginTypeasd {
     popup = "popup",
     redirect = "redirect"
 }

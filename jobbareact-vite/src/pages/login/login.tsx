@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import DefaultPage from "/src/pages/defaultpage";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -38,9 +39,20 @@ export default function Home() {
               >
                 Simple. Easy.
               </Typography>
-              <Stack spacing={2} direction="row" sx={{ margin: 0, display: "flex", alignItems: "center", justifyContent:"center"}}>
-                <Button variant="contained">Applicant</Button>
-                <Button variant="outlined">Employer</Button>
+              <Stack
+                spacing={2}
+                direction="row"
+                sx={{
+                  margin: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Button variant="contained" component={Link} to="/jobseeker">
+                  Applicant
+                </Button>
+                <Button variant="outlined" component={Link} to="/employer">Employer</Button>
               </Stack>
             </Container>
           </Box>
