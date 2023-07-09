@@ -7,6 +7,7 @@ import {
   Typography,
   Chip,
   Container,
+  Icon,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Stack } from "react-bootstrap";
@@ -40,9 +41,9 @@ export default function SearchBar() {
             alignItems: "center",
           }}
         >
-          <IconButton sx={{ p: "10px" }} aria-label="menu">
+          <Icon sx={{ p: "10px" }} aria-label="menu">
             <MenuIcon />
-          </IconButton>
+          </Icon>
           <InputBase
             sx={{ ml: 1, flex: 1 }}
             placeholder="Find Jobs"

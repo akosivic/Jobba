@@ -1,7 +1,5 @@
 import JobbaLogo from "../logo/logo";
 import "./navbar.scss";
-import EmployerLoginBtn from "../employerlogin";
-import { Anchor, Offcanvas } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import {
   AuthenticatedTemplate,
@@ -9,8 +7,6 @@ import {
   useIsAuthenticated,
   useMsal,
 } from "@azure/msal-react";
-import LoginButton from "./loginbtn";
-import LogOutButton from "./logoutbtn";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -38,11 +34,21 @@ import {
 const pages = [
   { title: "Home", url: "/" },
   { title: "Find Jobs", url: "/findjobs" },
-  { title: "Register", url: "/register" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-export default function NavigationBar({ title }: { title: string }) {
+//Temporary while we setup the authentication.
+enum LoginType {
+  Default = 0,
+  Jobseeker,
+  Employer,
+}
+
+export default function NavigationBar({
+  options = LoginType.Default,
+}: {
+  options: any | undefined;
+}) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -159,7 +165,8 @@ export default function NavigationBar({ title }: { title: string }) {
                 </Button>
               ))}
             </Box>
-            <AuthenticatedTemplate>
+            {LoginType[options.LoginType] === LoginType.Jobseeker && (
+              // <AuthenticatedTemplate>
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -192,137 +199,111 @@ export default function NavigationBar({ title }: { title: string }) {
                   ))}
                 </Menu>
               </Box>
-            </AuthenticatedTemplate>
-
-            <UnauthenticatedTemplate>
-              <Box>
-                <Tooltip
-                  title="Login"
-                  sx={{
-                    mr: 2,
-                    display: { xs: "none", md: "flex" },
-                    flexGrow: 1,
-                  }}
-                >
-                  <Button
-                    onClick={handleOpenUserMenu}
-                    size="large"
-                    aria-label="login-options"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    color="inherit"
-                    variant="outlined"
+              // </AuthenticatedTemplate>
+            )}
+            {LoginType[options.LoginType] === LoginType.Default && (
+              <UnauthenticatedTemplate>
+                <Box>
+                  <Tooltip
+                    title="Sign Up"
+                    sx={{
+                      mr: 2,
+                      display: { xs: "none", md: "flex" },
+                      flexGrow: 1,
+                    }}
                   >
-                    Login
-                  </Button>
-                </Tooltip>
-                <Tooltip
-                  title="Login"
-                  sx={{
-                    mr: 2,
-                    display: { xs: "flex", md: "none" },
-                    flexGrow: 1,
-                  }}
-                >
-                  <IconButton
-                    onClick={toggleLoginMenu(true)}
-                    size="large"
-                    aria-label="login-options"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    color="inherit"
+                    <Button
+                      onClick={handleOpenUserMenu}
+                      size="large"
+                      aria-label="login-options"
+                      aria-controls="menu-appbar"
+                      aria-haspopup="true"
+                      color="inherit"
+                      variant="outlined"
+                      component={Link}
+                      to="/signup"
+                    >
+                      Sign Up
+                    </Button>
+                  </Tooltip>
+                </Box>
+                <Box>
+                  <Tooltip
+                    title="Login"
+                    sx={{
+                      mr: 2,
+                      display: { xs: "none", md: "flex" },
+                      flexGrow: 1,
+                    }}
                   >
-                    <AccountCircleRoundedIcon />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "center",
-                    horizontal: "center",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "center",
-                    horizontal: "center",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  <MenuItem key="Login" onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Applicant</Typography>
-                  </MenuItem>
-                  <MenuItem key="LoginAsEmployer" onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Employer</Typography>
-                  </MenuItem>
-                </Menu>
-                <Drawer
-                  anchor="left"
-                  open={loginDrawerState}
-                  onClose={toggleLoginMenu(false)}
-                >
-                  <List>
-                    <Toolbar>
-                      <Typography>Login As</Typography>
-                    </Toolbar>
-                    <Divider />
+                    <Button
+                      onClick={handleOpenUserMenu}
+                      size="large"
+                      aria-label="login-options"
+                      aria-controls="menu-appbar"
+                      aria-haspopup="true"
+                      color="inherit"
+                      variant="text"
+                      component={Link}
+                      to="/login"
+                    >
+                      Login
+                    </Button>
+                  </Tooltip>
+                  <Tooltip
+                    title="Login"
+                    sx={{
+                      mr: 2,
+                      display: { xs: "flex", md: "none" },
+                      flexGrow: 1,
+                    }}
+                  >
+                    <IconButton
+                      onClick={toggleLoginMenu(true)}
+                      size="large"
+                      aria-label="login-options"
+                      aria-controls="menu-appbar"
+                      aria-haspopup="true"
+                      color="inherit"
+                    >
+                      <AccountCircleRoundedIcon />
+                    </IconButton>
+                  </Tooltip>
+                  <Drawer
+                    anchor="left"
+                    open={loginDrawerState}
+                    onClose={toggleLoginMenu(false)}
+                  >
+                    <List>
+                      <Toolbar>
+                        {/* <Typography>Login As</Typography> */}
+                      </Toolbar>
+                      <Divider />
 
-                    <ListItem key="Applicant" disablePadding>
-                      <ListItemButton>
-                        <ListItemText
-                          primary="Applicant"
-                          onClick={handleCloseNavMenu}
-                        />
-                      </ListItemButton>
-                    </ListItem>
-                    <ListItem key="Employer" disablePadding>
-                      <ListItemButton>
-                        <ListItemText
-                          primary="Employer"
-                          onClick={handleCloseNavMenu}
-                        />
-                      </ListItemButton>
-                    </ListItem>
-                  </List>
-                </Drawer>
-              </Box>
-            </UnauthenticatedTemplate>
+                      <ListItem key="signup" disablePadding>
+                        <ListItemButton component={Link} to="/signup">
+                          <ListItemText
+                            primary="Sign Up"
+                            onClick={toggleLoginMenu(false)}
+                          />
+                        </ListItemButton>
+                      </ListItem>
+                      <ListItem key="login" disablePadding>
+                        <ListItemButton component={Link} to="/login">
+                          <ListItemText
+                            primary="Login"
+                            onClick={toggleLoginMenu(false)}
+                          />
+                        </ListItemButton>
+                      </ListItem>
+                    </List>
+                  </Drawer>
+                </Box>
+              </UnauthenticatedTemplate>
+            )}
           </Toolbar>
         </Container>
       </AppBar>
-      {/* <Navbar collapseOnSelect expand="lg" className='border-bottom'>
-                <Container>
-                    <Navbar.Brand href="/"><JobbaLogo /></Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Offcanvas
-                        id={`offcanvasNavbar-expand-false`}
-                        aria-labelledby={`offcanvasNavbarLabel-expand-false`}
-                        placement="end"
-                    >
-                        <Offcanvas.Header closeButton className="border-bottom">
-                            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-false`} >
-                                <JobbaLogo />
-                            </Offcanvas.Title>
-                        </Offcanvas.Header>
-                        <Offcanvas.Body>
-                            <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <NavLink className="nav-link" to="/">Home</NavLink>
-                                <NavLink className="nav-link" to="/findjobs">Find Jobs</NavLink>
-                                <UnauthenticatedTemplate>
-                                    <NavLink className="nav-link" to="/register">Register</NavLink>
-                                    <LoginButton></LoginButton>
-                                    <EmployerLoginBtn />
-                                </UnauthenticatedTemplate>
-                                <AuthenticatedTemplate>
-                                    <LogOutButton/>
-                                </AuthenticatedTemplate>
-                            </Nav>
-                        </Offcanvas.Body>
-                    </Navbar.Offcanvas>
-                </Container>
-            </Navbar> */}
     </>
   );
 }
