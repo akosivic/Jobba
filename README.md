@@ -29,4 +29,4 @@ inside the folder jobbareact-vite
  > npm run dev
 
 to run jobbaAPI
- > install 
+ > build and run each of the microservices
