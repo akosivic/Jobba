@@ -11,14 +11,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Job.Domain", "Jobba.P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Search", "Search", "{4BFE08F4-3F8E-4712-A873-240CC57EF191}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobbaAPI.Search.API", "JobbaAPI.Search\JobbaAPI.Search.API.csproj", "{69A03A5E-B038-4447-A584-F31853D42592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Search.API", "JobbaAPI.Search\Jobba.Search.API.csproj", "{69A03A5E-B038-4447-A584-F31853D42592}"
 	ProjectSection(ProjectDependencies) = postProject
 		{ED4CDD59-E582-4E15-B56D-A4F909370244} = {ED4CDD59-E582-4E15-B56D-A4F909370244}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobbaAPI.Search.Domain", "JobbaAPI.Search.Domain\JobbaAPI.Search.Domain.csproj", "{1E371FA7-13C2-4616-9F28-868CCE430105}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Search.Domain", "JobbaAPI.Search.Domain\Jobba.Search.Domain.csproj", "{1E371FA7-13C2-4616-9F28-868CCE430105}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobba.API.Search.Infrastructure", "Jobba.API.Search.Infrastructure\Jobba.API.Search.Infrastructure.csproj", "{ED4CDD59-E582-4E15-B56D-A4F909370244}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Search.Infrastructure", "Jobba.API.Search.Infrastructure\Jobba.Search.Infrastructure.csproj", "{ED4CDD59-E582-4E15-B56D-A4F909370244}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Company", "Company", "{EC22B478-BDEF-40B0-8F7E-37993610835E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{BF62E1AD-340D-4AD6-92EC-0063B10AFB79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Search.Test", "JobbaAPI.Search.Test\Jobba.Search.Test.csproj", "{8FA47915-AEE6-43CD-A71A-79C1F544B5BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobba.Job.Infrastructure", "Jobba.API.Job.Infrastructure\Jobba.Job.Infrastructure.csproj", "{AD2EB936-D362-46B2-AB24-AC1773C85269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +54,14 @@ Global
 		{ED4CDD59-E582-4E15-B56D-A4F909370244}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED4CDD59-E582-4E15-B56D-A4F909370244}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED4CDD59-E582-4E15-B56D-A4F909370244}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FA47915-AEE6-43CD-A71A-79C1F544B5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA47915-AEE6-43CD-A71A-79C1F544B5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA47915-AEE6-43CD-A71A-79C1F544B5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA47915-AEE6-43CD-A71A-79C1F544B5BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2EB936-D362-46B2-AB24-AC1773C85269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2EB936-D362-46B2-AB24-AC1773C85269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2EB936-D362-46B2-AB24-AC1773C85269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2EB936-D362-46B2-AB24-AC1773C85269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +72,8 @@ Global
 		{69A03A5E-B038-4447-A584-F31853D42592} = {4BFE08F4-3F8E-4712-A873-240CC57EF191}
 		{1E371FA7-13C2-4616-9F28-868CCE430105} = {4BFE08F4-3F8E-4712-A873-240CC57EF191}
 		{ED4CDD59-E582-4E15-B56D-A4F909370244} = {4BFE08F4-3F8E-4712-A873-240CC57EF191}
+		{8FA47915-AEE6-43CD-A71A-79C1F544B5BE} = {4BFE08F4-3F8E-4712-A873-240CC57EF191}
+		{AD2EB936-D362-46B2-AB24-AC1773C85269} = {ABC3C518-04F5-4CD4-A890-A89363B6F872}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {18465006-3407-4F92-9B40-DF5866296E57}

@@ -7,13 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace JobbaAPI.Search.Controllers
+namespace Jobba.API.Search.Controllers
 {
     [ApiController]
-    [Route("api/searchjob")]
+    [Route("api/search")]
     public class SearchJobController : ControllerBase
     {
-        
 
         private readonly ILogger<SearchJobController> _logger;
         private readonly IRepository<SearchString> _repository;
@@ -22,7 +21,6 @@ namespace JobbaAPI.Search.Controllers
         {
             _logger = logger;
             _repository = repository;
-
         }
 
         [HttpGet("topresults")]
@@ -41,7 +39,7 @@ namespace JobbaAPI.Search.Controllers
             }
         }
 
-        [HttpPost()]
+        [HttpPost]
         public async Task<IActionResult> AddResults([FromQuery] string keyword)
         {
             try

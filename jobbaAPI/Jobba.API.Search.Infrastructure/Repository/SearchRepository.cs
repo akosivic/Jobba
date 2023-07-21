@@ -15,7 +15,7 @@ namespace Jobba.API.Search.Infrastructure.Repository
     {
         private readonly SearchDBContext _searchDbContext;
 
-        public IUnitOfWork UnitOfWork => throw new NotImplementedException();
+        //public IUnitOfWork UnitOfWork => throw new NotImplementedException();
 
         public SearchRepository(SearchDBContext searchDbContext)
         {

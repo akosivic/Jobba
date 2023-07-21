@@ -19,7 +19,7 @@ namespace JobbaAPI.Search.Domain.Entities
         public SearchString(string keyword) { 
             Keyword = keyword;
             SearchCount = 1;
-        }
+        } 
 
         public void Increment()
         {

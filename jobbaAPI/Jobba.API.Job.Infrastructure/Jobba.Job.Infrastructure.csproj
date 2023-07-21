@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JobbaAPI.Search.Domain\JobbaAPI.Search.Domain.csproj" />
+    <ProjectReference Include="..\Jobba.Pet.Domain\Jobba.Job.Domain.csproj" />
   </ItemGroup>
 
 </Project>

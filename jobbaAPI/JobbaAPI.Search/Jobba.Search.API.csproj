@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Jobba.API.Search.Infrastructure\Jobba.API.Search.Infrastructure.csproj" />
-    <ProjectReference Include="..\JobbaAPI.Search.Domain\JobbaAPI.Search.Domain.csproj" />
+    <ProjectReference Include="..\Jobba.API.Search.Infrastructure\Jobba.Search.Infrastructure.csproj" />
+    <ProjectReference Include="..\JobbaAPI.Search.Domain\Jobba.Search.Domain.csproj" />
   </ItemGroup>
 
 </Project>
