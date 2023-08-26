@@ -1,6 +1,6 @@
 // import { Button, Card, CardGroup, Carousel, Container, Figure } from "react-bootstrap";
 import { Box, Container, Typography } from "@mui/material";
-import Navbar from "/src/components/navbar/navbar";
+import Navbar from "../../components/navbar/navbar";
 
 export default function JobseekerMasterPage(props: any) {
   return (

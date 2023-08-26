@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Tab, Tabs } from "@mui/material";
-import DefaultPage from "/src/pages/defaultpage";
+import DefaultPage from "../defaultpage";
 
 export default function SignUp() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

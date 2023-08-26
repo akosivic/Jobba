@@ -8,7 +8,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import DefaultPage from "/src/pages/defaultpage";
+import DefaultPage from "../defaultpage";
 import { Link, NavLink } from "react-router-dom";
 
 export default function Home() {

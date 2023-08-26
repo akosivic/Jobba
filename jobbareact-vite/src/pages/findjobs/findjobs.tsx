@@ -13,7 +13,7 @@ import {
 import SearchBar from "../../components/searchbar/searchbar";
 import Pagination from "react-bootstrap/Pagination";
 import "./findjobs.scss";
-import DefaultPage from "/src/pages/defaultpage";
+import DefaultPage from "../../pages/defaultpage";
 
 export default function FindJobs() {
   let active = 2;

@@ -31,7 +31,7 @@ import {
   ListItemText,
 } from "@mui/material";
 
-import { LoginType, getAuthenticatedURLs } from "/src/services/helperService";
+import { LoginType, getAuthenticatedURLs } from "../../services/helperService";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -159,7 +159,7 @@ export default function NavigationBar({
                 </Button>
               ))}
             </Box>
-            {LoginType[options.LoginType] === LoginType.Jobseeker && (
+            {LoginType[options.LoginType].toString() === LoginType.Jobseeker.toString() && (
               // <AuthenticatedTemplate>
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
@@ -195,7 +195,7 @@ export default function NavigationBar({
               </Box>
               // </AuthenticatedTemplate>
             )}
-            {LoginType[options.LoginType] === LoginType.Default && (
+            {LoginType[options.LoginType].toString() === LoginType.Default.toString() && (
               <UnauthenticatedTemplate>
                 <Box>
                   <Tooltip

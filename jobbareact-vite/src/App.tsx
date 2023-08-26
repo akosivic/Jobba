@@ -5,10 +5,10 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import Footer from "./components/footer/footer";
 import Register from "./components/register";
-import SignUp from "/src/pages/signup/signup";
-import Login from "/src/pages/login/login";
-import FindJobs from "/src/pages/findjobs/findjobs";
-import JobSeeker from "/src/pages/jobseeker/jobseeker";
+import SignUp from "./pages/signup/signup";
+import Login from "./pages/login/login";
+import FindJobs from "./pages/findjobs/findjobs";
+import JobSeeker from "./pages/jobseeker/jobseeker";
 
 function App() {
   return (
