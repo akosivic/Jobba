@@ -64,25 +64,14 @@ export default function FindJobs() {
       <DefaultPage>
         <div className="container my-5">
           <SearchBar />
-          <Stack direction="horizontal" gap={3} className="mb-2">
+          {/* <Stack direction="horizontal" gap={3} className="mb-2">
             <div>1 - 15 of 4251 job matches</div>
-            <DropdownButton
-              variant="outline-dark"
-              id="dropdown-basic-button"
-              size="sm"
-              title="Sort by"
-            >
-              <Dropdown.Item href="#/action-1">Relevance</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Expiry Date</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Post Date</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Salary</Dropdown.Item>
-            </DropdownButton>
           </Stack>
 
           <Card>
             <ListGroup variant="flush">{cards}</ListGroup>
-          </Card>
-          <Pagination className="mt-1">{items}</Pagination>
+          </Card> */}
+          {/* <Pagination className="mt-1">{items}</Pagination> */}
         </div>
       </DefaultPage>
     </>
