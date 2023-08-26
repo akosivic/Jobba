@@ -1,25 +1,38 @@
-﻿using Jobba.Job.Domain.Entities;
+﻿using JobbaAPI.Job.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage;
 
-namespace Jobba.Job.Infrastructure.Data
+namespace JobbaAPI.Job.Infrastructure.Data
 {
     public class JobDBContext : DbContext
     {
+        public DbSet<JobInfo> JobInfos { get; set; }
         public JobDBContext(DbContextOptions<JobDBContext> options) : base(options)
         {
             Database.EnsureCreated();
+            var s = Database.GenerateCreateScript();
+            RelationalDatabaseCreator databaseCreator =
+            (RelationalDatabaseCreator)Database.GetService<IDatabaseCreator>();
+            databaseCreator.CreateTables();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<JobInfo>().Property(p => p.Id).IsRequired();
-            modelBuilder.Entity<JobInfo>().Property(p => p.JobTitle).IsRequired();
-            modelBuilder.Entity<JobInfo>().Property(p => p.PostDate).IsRequired();
+            modelBuilder.ApplyConfiguration(new JobEntityTypeConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }
+
+    public class JobEntityTypeConfiguration : IEntityTypeConfiguration<JobInfo> 
+    {
+        public void Configure(EntityTypeBuilder<JobInfo> jobInfoConfiguration)
+        {
+            jobInfoConfiguration.Property(p=>p.Id).IsRequired();
+            jobInfoConfiguration.Property(p=> p.JobTitle).IsRequired();
+            jobInfoConfiguration.Property(p=>p.PostDate).IsRequired();
+            jobInfoConfiguration.OwnsOne(o => o.Company);
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -14,28 +15,28 @@ builder.Services.AddCors(options =>
         policy.AllowAnyOrigin();
     });
 });
+
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-var conenctionstring = builder.Configuration["connectionStrings:DataAccessMySqlProvider"];
+var connectionstring = builder.Configuration["connectionStrings:DataAccessMySqlProvider"];
 
-builder.Services.AddDbContext<SearchDBContext>(o =>
-{
-    o.UseMySql(conenctionstring, ServerVersion.AutoDetect(conenctionstring));
-});
 builder.Services.AddScoped<SearchDBContext>();
 builder.Services.AddScoped<IRepository<SearchString>, SearchRepository>();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-        // Global settings: use the defaults, but serialize enums as strings
-        // (because it really should be the default)
-        options.JsonSerializerOptions.Converters.Add(
-        new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, false));
+    // Global settings: use the defaults, but serialize enums as strings
+    // (because it really should be the default)
+    options.JsonSerializerOptions.Converters.Add(
+    new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, false));
 });
-
+builder.Services.AddDbContext<SearchDBContext>(o =>
+{
+    o.UseMySql(connectionstring, ServerVersion.AutoDetect(connectionstring));
+});
 
 var app = builder.Build();
 

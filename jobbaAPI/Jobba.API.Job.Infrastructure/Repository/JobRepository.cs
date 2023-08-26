@@ -4,15 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Jobba.Job.Domain.Entities;
+using JobbaAPI.Job.Domain.Entities;
+using JobbaAPI.Job.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace Jobba.Job.Infrastructure.Repository
+namespace JobbaAPI.Job.Infrastructure.Repository
 {
     public class JobRepository : IRepository<JobInfo>
     {
-        public Task<List<JobInfo>> GetAsync()
+        private readonly JobDBContext _jobDbContext;
+        public JobRepository(JobDBContext jobDbContext)
         {
-            throw new NotImplementedException();
+            this._jobDbContext = jobDbContext;
+        }
+        public async Task<List<JobInfo>> GetAsync( )
+        {
+            return await this._jobDbContext.JobInfos.Select(p => p).ToListAsync();
         }
 
         public Task PostAsync(JobInfo entity)

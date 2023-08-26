@@ -20,13 +20,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Search.Domain", "Jobb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Search.Infrastructure", "Jobba.API.Search.Infrastructure\Jobba.Search.Infrastructure.csproj", "{ED4CDD59-E582-4E15-B56D-A4F909370244}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Company", "Company", "{EC22B478-BDEF-40B0-8F7E-37993610835E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{BF62E1AD-340D-4AD6-92EC-0063B10AFB79}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Search.Test", "JobbaAPI.Search.Test\Jobba.Search.Test.csproj", "{8FA47915-AEE6-43CD-A71A-79C1F544B5BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobba.Job.Infrastructure", "Jobba.API.Job.Infrastructure\Jobba.Job.Infrastructure.csproj", "{AD2EB936-D362-46B2-AB24-AC1773C85269}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jobba.Job.Infrastructure", "Jobba.API.Job.Infrastructure\Jobba.Job.Infrastructure.csproj", "{AD2EB936-D362-46B2-AB24-AC1773C85269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

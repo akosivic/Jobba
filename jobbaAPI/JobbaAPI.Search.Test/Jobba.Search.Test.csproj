@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Jobba.Pet.Domain\Jobba.Job.Domain.csproj" />
     <ProjectReference Include="..\JobbaAPI.Search.Domain\Jobba.Search.Domain.csproj" />
   </ItemGroup>
 

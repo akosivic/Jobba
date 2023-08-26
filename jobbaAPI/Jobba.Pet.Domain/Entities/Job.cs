@@ -1,28 +1,23 @@
-﻿using Jobba.Job.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using JobbaAPI.Job.Domain.ValueObjects;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Jobba.Job.Domain.Entities
+namespace JobbaAPI.Job.Domain.Entities
 {
     public class JobInfo
     {
-       private DateTime _created;
+        private DateTime _created;
+        private Company company;
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; private set; }
-        public string? JobTitle { get; set; }
+        public string JobTitle { get; set; } = string.Empty;
+
         public Company? Company { get => company; set => company = value; }
-        public string? Description { get; set; }
+        public string Description { get; set; } = string.Empty;
         public DateTime PostDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public DateTime LastUpdate { get { return _created; } private set { _created = DateTime.UtcNow; } }
-
-        private Company company;
 
         public JobInfo()
         {
