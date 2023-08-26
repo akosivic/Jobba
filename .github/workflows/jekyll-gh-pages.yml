@@ -35,10 +35,10 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-      - name: Install dependencies
-        run: npm install
       - name: change directory
         run: cd jobbareact-vite
+      - name: Install dependencies
+        run: npm install
       - name: Build
         run: npm run build
       - name: Build with Jekyll
