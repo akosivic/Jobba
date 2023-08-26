@@ -35,16 +35,15 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-      - name: change directory
-        run: cd ./jobbareact-vite/
       - name: Install dependencies
         run: npm install
       - name: Build
         run: npm run build
+        working-directory: "./jobbareact-vite"
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: './dist'
+          source: './jobbareact-vite/dist'
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
