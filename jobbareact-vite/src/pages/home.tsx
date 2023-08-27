@@ -1,6 +1,6 @@
 // import { Button, Card, CardGroup, Carousel, Container, Figure } from "react-bootstrap";
 import SearchBar from "../components/searchbar/searchbar";
-import "/src/components/common.scss";
+import "../components/common.scss";
 import { Box, Container, Typography } from "@mui/material";
 import DefaultPage from "./defaultpage";
 

@@ -1,5 +1,5 @@
 import "./App.scss";
-import Navbar from "./components/navbar/navbar";
+// import Navbar from "./components/navbar/navbar";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Jobba" element={<Home />} />
         <Route path="/findjobs" element={<FindJobs />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signup" element={<SignUp />} />
