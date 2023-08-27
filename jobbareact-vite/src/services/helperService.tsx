@@ -12,7 +12,7 @@ export interface urlPages {
   url: string;
 }
 const defaultPages = [
-  { title: "Home", url: "/" },
+  { title: "Home", url: "/jobba" },
   { title: "Find Jobs", url: "/findjobs" },
 ];
 
